@@ -33,7 +33,7 @@ CORS(app, resources={
 def home():
     return render_template(
         'home.html',
-        title="In browser calls",
+        title="In browser calls with Twilio",
     )
 
 @app.route('/token', methods=['GET'])
