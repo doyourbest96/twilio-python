@@ -1,0 +1,102 @@
+# Python virtual environments - expanded
+venv/
+virtualenv/
+.venv/
+ENV/
+env/
+.env/
+.python-version
+pyvenv.cfg
+
+# Python cache files
+__pycache__/
+.venv
+deployment.md
+.env.*
+infrastructure/
+*.py[cod]
+*$py.class
+.github/
+# C extensions
+*.so
+
+# Package distribution and build
+dist/
+build/
+develop-eggs/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+*.egg
+MANIFEST
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+.flaskenv
+*.pem
+*.key
+secrets/
+
+# IDE specific
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+.project
+.pydevproject
+.settings/
+.classpath
+
+# Logs, databases, and local data
+*.log
+logs/
+*.sqlite
+*.db
+*.sqlite3
+data/
+temp/
+tmp/
+
+# Testing and coverage
+.coverage
+coverage/
+.pytest_cache/
+htmlcov/
+.tox/
+nosetests.xml
+coverage.xml
+.hypothesis/
+.coverage.*
+
+# Documentation
+docs/_build/
+site/
+
+# Backup files
+*.bak
+*.backup
+*~
+*.orig
+
+# Executable files
+*.exe
+*.msi
+*.dll
+*.bat
+*.cmd
+*.com
+*.out
+*.app
