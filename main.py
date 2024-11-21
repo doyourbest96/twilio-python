@@ -74,7 +74,7 @@ def call():
         print('incoming call')
         caller = request.form['Caller']
         dial = Dial(callerId=caller)
-        dial.client(twilio_number)
+        dial.client(twilio_number.replace('+', ''))
 
     return str(response.append(dial))
 
