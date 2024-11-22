@@ -17,12 +17,12 @@ account_sid = os.environ['TWILIO_ACCOUNT_SID']
 api_key = os.environ['TWILIO_API_KEY_SID']
 api_key_secret = os.environ['TWILIO_API_KEY_SECRET']
 twiml_app_sid = os.environ['TWIML_APP_SID']
-twilio_number = os.environ['TWILIO_NUMBER']
+twilio_numbers = ["+17372653760", "+18582992629"]
 
 app = Flask(__name__)
 CORS(app, resources={
     r"/*": {
-        "origins": ["http://localhost:3000"],
+        "origins": ["http://localhost:3000", "https://9e6a-45-126-3-252.ngrok-free.app", "https://3962-45-126-3-252.ngrok-free.app"],
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Accept", "Content-Type"],
         "supports_credentials": True
@@ -65,16 +65,18 @@ def get_token():
 def call():
     p.pprint(request.form)
     response = VoiceResponse()
-    dial = Dial(callerId=twilio_number)
+    dial = Dial(callerId=twilio_numbers[0])
 
-    if 'To' in request.form and request.form['To'] != twilio_number:
+    print(request.form['From'] + ' --> ' + request.form['To'])
+
+    if 'To' in request.form and twilio_numbers.__contains__(request.form['To']):
         print('outbound call')
         dial.number(request.form['To'])
     else:
         print('incoming call')
         caller = request.form['Caller']
         dial = Dial(callerId=caller)
-        dial.client(twilio_number.replace('+', ''))
+        dial.client(request.form['To'].replace('+', ''))
 
     return str(response.append(dial))
 
